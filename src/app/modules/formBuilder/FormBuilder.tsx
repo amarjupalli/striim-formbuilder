@@ -13,7 +13,12 @@ function renderFromField(field: FormField<string>) {
       <div key={`$form-field-${field.name}`}>
         <label htmlFor={field.name}>
           {field.label}
-          <input type="text" name={field.name} placeholder={field.label} />
+          <input
+            type="text"
+            name={field.name}
+            id={field.name}
+            placeholder={field.label}
+          />
         </label>
       </div>
     );
