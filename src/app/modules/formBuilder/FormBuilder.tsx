@@ -29,7 +29,7 @@ function renderFromField(field: FormField<string>) {
       <div className="field" key={`$form-field-${field.name}`}>
         <div>{field.label}</div>
         <div style={{ display: "inline-flex", gap: "16px" }}>
-          {field.options?.map((option) => (
+          {field.options.map((option) => (
             <div key={`input-checkbox-${option}`}>
               <label htmlFor={option}>{option}</label>
               <input
@@ -50,7 +50,7 @@ function renderFromField(field: FormField<string>) {
       <div className="field" key={`$form-field-${name}`}>
         <label htmlFor={name}>{label}</label>
         <select name={name} id={name} multiple={type === "multiSelect"}>
-          {options?.map((option) => (
+          {options.map((option) => (
             <option key={`${name}-option-${option}`} value={option}>
               {option}
             </option>

@@ -1,11 +1,18 @@
-type FieldTyes = "text" | "checkbox" | "multiSelect" | "select";
-
-export interface FormField<T extends string> {
-  type: FieldTyes;
+interface BaseFormField {
   name: string;
   label: string;
-  options?: T[];
 }
+
+interface TextFormField extends BaseFormField {
+  type: "text";
+}
+
+interface OptionsFormField<T extends string> extends BaseFormField {
+  type: "checkbox" | "multiSelect" | "select";
+  options: T[];
+}
+
+export type FormField<T extends string> = TextFormField | OptionsFormField<T>;
 
 const fields = [
   {
