@@ -1,5 +1,4 @@
-import Image from "next/image";
-import FormBuilder from "./modules/formBuilder/formBuilder";
+import FormBuilder from "./modules/formBuilder/FormBuilder";
 import React from "react";
 
 export default function Home() {
@@ -55,17 +54,11 @@ export default function Home() {
         options: ["Mac", "Windows", "Linux"],
       },
     ],
-    onSubmit: function (formValues) {
-      console.log("On Save, formValues:", formValues);
-    },
   };
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h3>Below renders the form builder</h3>
-        <FormBuilder formData={formData}/>
-      </main>
+    <div className="container font-[family-name:var(--font-geist-sans)]">
+      <FormBuilder formData={formData} />
     </div>
   );
 }
