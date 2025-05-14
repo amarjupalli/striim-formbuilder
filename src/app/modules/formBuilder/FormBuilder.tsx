@@ -32,7 +32,7 @@ function renderFromField(field: FormField<string>) {
               <label htmlFor={option}>{option}</label>
               <input
                 type="checkbox"
-                name={`${field.name}-${option}`}
+                name={field.name}
                 id={`${field.name}-${option}`}
               />{" "}
             </div>
