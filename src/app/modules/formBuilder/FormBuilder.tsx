@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
 import handleSubmit from "./handleSubmit";
-import { type FormField, type FormData } from "./formData";
+import { type FormField, type FormData, FORM_INPUTS } from "./formData";
 
 interface FormBuilderProps {
   formData: FormData<string>;
 }
 
 function renderFromField(field: FormField<string>) {
-  if (field.type === "text") {
+  if (field.type === FORM_INPUTS.TEXT) {
     return (
       <div className="field" key={`$form-field-${field.name}`}>
         <label htmlFor={field.name}>
@@ -24,7 +24,7 @@ function renderFromField(field: FormField<string>) {
     );
   }
 
-  if (field.type === "checkbox") {
+  if (field.type === FORM_INPUTS.CHECKBOX) {
     return (
       <div className="field" key={`$form-field-${field.name}`}>
         <div>{field.label}</div>
@@ -44,7 +44,10 @@ function renderFromField(field: FormField<string>) {
     );
   }
 
-  if (field.type === "multiSelect" || field.type === "select") {
+  if (
+    field.type === FORM_INPUTS.MULTI_SELECT ||
+    field.type === FORM_INPUTS.SELECT
+  ) {
     const { label, name, options, type } = field;
     return (
       <div className="field" key={`$form-field-${name}`}>
