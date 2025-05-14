@@ -1,8 +1,13 @@
 "use client";
-
 import React from "react";
 import handleSubmit from "./handleSubmit";
-function renderFromField(field) {
+import { type FormField, type FormData } from "./formData";
+
+interface FormBuilderProps {
+  formData: FormData<string>;
+}
+
+function renderFromField(field: FormField<string>) {
   if (field.type === "text") {
     return (
       <div key={`$form-field-${field.name}`}>
@@ -16,7 +21,7 @@ function renderFromField(field) {
   // TODO: handle all field types
 }
 
-export default function FormBuilder({ formData }) {
+export default function FormBuilder({ formData }: FormBuilderProps) {
   const { fields } = formData;
   return (
     <div>
