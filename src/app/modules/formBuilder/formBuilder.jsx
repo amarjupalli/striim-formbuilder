@@ -1,5 +1,7 @@
-import React from "react";
+"use client";
 
+import React from "react";
+import handleSubmit from "./handleSubmit";
 function renderFromField(field) {
   if (field.type === "text") {
     return (
@@ -18,7 +20,10 @@ export default function FormBuilder({ formData }) {
   const { fields } = formData;
   return (
     <div>
-      <form name="applicantForm">{fields.map(renderFromField)}</form>
+      <form className="form" name="applicantForm" onSubmit={handleSubmit}>
+        {fields.map(renderFromField)}
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }

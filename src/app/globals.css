@@ -30,3 +30,9 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
