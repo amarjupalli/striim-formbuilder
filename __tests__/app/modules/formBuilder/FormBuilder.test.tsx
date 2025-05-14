@@ -1,7 +1,10 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import FormBuilder from "@/app/modules/formBuilder/FormBuilder";
 import formData from "@/app/modules/formBuilder/formData";
+import handleSubmit from "@/app/modules/formBuilder/handleSubmit";
+
+jest.mock("../../../../src/app/modules/formBuilder/handleSubmit");
 
 describe("FormBuilder", () => {
   it("renders the FormBuilder", () => {
@@ -21,9 +24,15 @@ describe("FormBuilder", () => {
     ).toBeInTheDocument();
   });
 
-  it("should render a submit button", () => {
+  it("should render a submit and reset button", () => {
     render(<FormBuilder formData={formData} />);
-    expect(screen.getByRole("button", { name: /submit/i })).toBeInTheDocument();
+    const submitButton = screen.getByRole("button", { name: /submit/i });
+    const resetButton = screen.getByRole("button", { name: /reset/i });
+    expect(submitButton).toBeInTheDocument();
+    expect(resetButton).toBeInTheDocument();
+
+    fireEvent.click(submitButton);
+    expect(handleSubmit).toHaveBeenCalled();
   });
 
   it("should render checkbox and labels", () => {

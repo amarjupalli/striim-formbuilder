@@ -11,15 +11,13 @@ function renderFromField(field: FormField<string>) {
   if (field.type === FORM_INPUTS.TEXT) {
     return (
       <div className="field" key={`$form-field-${field.name}`}>
-        <label htmlFor={field.name}>
-          {field.label}
-          <input
-            type="text"
-            name={field.name}
-            id={field.name}
-            placeholder={field.label}
-          />
-        </label>
+        <label htmlFor={field.name}>{field.label}</label>
+        <input
+          type="text"
+          name={field.name}
+          id={field.name}
+          placeholder={field.label}
+        />
       </div>
     );
   }
@@ -27,7 +25,7 @@ function renderFromField(field: FormField<string>) {
   if (field.type === FORM_INPUTS.CHECKBOX) {
     return (
       <div className="field" key={`$form-field-${field.name}`}>
-        <div>{field.label}</div>
+        <label>{field.label}</label>
         <div style={{ display: "inline-flex", gap: "16px" }}>
           {field.options.map((option) => (
             <div key={`input-checkbox-${option}`}>
@@ -69,7 +67,10 @@ export default function FormBuilder({ formData }: FormBuilderProps) {
   return (
     <form className="form" name="applicantForm" onSubmit={handleSubmit}>
       {fields.map(renderFromField)}
-      <button type="submit">Submit</button>
+      <div className="buttonContainer">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </div>
     </form>
   );
 }
