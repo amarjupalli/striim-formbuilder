@@ -28,16 +28,34 @@ function renderFromField(field: FormField<string>) {
     return (
       <div className="field" key={`$form-field-${field.name}`}>
         <div>{field.label}</div>
-        {field.options?.map((option) => (
-          <span key={`input-checkbox-${option}`}>
-            <label htmlFor={option}>{option}</label>
-            <input
-              type="checkbox"
-              name={`${field.name}-${option}`}
-              id={`${field.name}-${option}`}
-            />{" "}
-          </span>
-        ))}
+        <div style={{ display: "inline-flex", gap: "16px" }}>
+          {field.options?.map((option) => (
+            <div key={`input-checkbox-${option}`}>
+              <label htmlFor={option}>{option}</label>
+              <input
+                type="checkbox"
+                name={`${field.name}-${option}`}
+                id={`${field.name}-${option}`}
+              />{" "}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (field.type === "multiSelect" || field.type === "select") {
+    const { label, name, options, type } = field;
+    return (
+      <div className="field" key={`$form-field-${name}`}>
+        <label htmlFor={name}>{label}</label>
+        <select name={name} id={name} multiple={type === "multiSelect"}>
+          {options?.map((option) => (
+            <option key={`${name}-option-${option}`} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
       </div>
     );
   }
@@ -46,11 +64,9 @@ function renderFromField(field: FormField<string>) {
 export default function FormBuilder({ formData }: FormBuilderProps) {
   const { fields } = formData;
   return (
-    <div>
-      <form className="form" name="applicantForm" onSubmit={handleSubmit}>
-        {fields.map(renderFromField)}
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <form className="form" name="applicantForm" onSubmit={handleSubmit}>
+      {fields.map(renderFromField)}
+      <button type="submit">Submit</button>
+    </form>
   );
 }

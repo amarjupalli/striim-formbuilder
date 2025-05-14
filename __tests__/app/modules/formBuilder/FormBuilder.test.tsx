@@ -32,14 +32,48 @@ describe("FormBuilder", () => {
       screen.getByText("Are you a Software Engineer?"),
     ).toBeInTheDocument();
 
-    expect(screen.getByText(/yes/i)).toBeInTheDocument();
+    expect(screen.getByText("yes")).toBeInTheDocument();
     expect(
       container.querySelector("#isSoftwareEngineer-yes"),
     ).toBeInTheDocument();
 
-    expect(screen.getByText(/no/i)).toBeInTheDocument();
+    expect(screen.getByText("no")).toBeInTheDocument();
     expect(
       container.querySelector("#isSoftwareEngineer-no"),
+    ).toBeInTheDocument();
+  });
+
+  it("should render select boxes, listboxes and their title", () => {
+    render(<FormBuilder formData={formData} />);
+
+    // assert for multiSelect aka ListBox
+    expect(
+      screen.getByText("Which languages are you proficient in?"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("listbox", {
+        name: "Which languages are you proficient in?",
+      }),
+    ).toBeInTheDocument();
+
+    // assert for another multiSelect aka ListBox
+    expect(
+      screen.getByText("When can you come to our office in Palo Alto?"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("listbox", {
+        name: "When can you come to our office in Palo Alto?",
+      }),
+    ).toBeInTheDocument();
+
+    // assert for regular select dropdown
+    expect(
+      screen.getByText("What's your favorite operating system to code on?"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("combobox", {
+        name: "What's your favorite operating system to code on?",
+      }),
     ).toBeInTheDocument();
   });
 });
