@@ -25,4 +25,21 @@ describe("FormBuilder", () => {
     render(<FormBuilder formData={formData} />);
     expect(screen.getByRole("button", { name: /submit/i })).toBeInTheDocument();
   });
+
+  it("should render checkbox and labels", () => {
+    const { container } = render(<FormBuilder formData={formData} />);
+    expect(
+      screen.getByText("Are you a Software Engineer?"),
+    ).toBeInTheDocument();
+
+    expect(screen.getByText(/yes/i)).toBeInTheDocument();
+    expect(
+      container.querySelector("#isSoftwareEngineer-yes"),
+    ).toBeInTheDocument();
+
+    expect(screen.getByText(/no/i)).toBeInTheDocument();
+    expect(
+      container.querySelector("#isSoftwareEngineer-no"),
+    ).toBeInTheDocument();
+  });
 });

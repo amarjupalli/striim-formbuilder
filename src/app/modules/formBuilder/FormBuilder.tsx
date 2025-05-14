@@ -10,7 +10,7 @@ interface FormBuilderProps {
 function renderFromField(field: FormField<string>) {
   if (field.type === "text") {
     return (
-      <div key={`$form-field-${field.name}`}>
+      <div className="field" key={`$form-field-${field.name}`}>
         <label htmlFor={field.name}>
           {field.label}
           <input
@@ -23,7 +23,24 @@ function renderFromField(field: FormField<string>) {
       </div>
     );
   }
-  // TODO: handle all field types
+
+  if (field.type === "checkbox") {
+    return (
+      <div className="field" key={`$form-field-${field.name}`}>
+        <div>{field.label}</div>
+        {field.options?.map((option) => (
+          <span key={`input-checkbox-${option}`}>
+            <label htmlFor={option}>{option}</label>
+            <input
+              type="checkbox"
+              name={`${field.name}-${option}`}
+              id={`${field.name}-${option}`}
+            />{" "}
+          </span>
+        ))}
+      </div>
+    );
+  }
 }
 
 export default function FormBuilder({ formData }: FormBuilderProps) {

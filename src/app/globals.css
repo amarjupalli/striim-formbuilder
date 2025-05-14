@@ -36,3 +36,9 @@ body {
   flex-direction: column;
   gap: 4px;
 }
+
+.field {
+  display: flex;
+  margin-bottom: 16px;
+  font-size: 16px;
+}

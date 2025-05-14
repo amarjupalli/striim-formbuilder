@@ -7,7 +7,9 @@ exports[`FormBuilder renders the FormBuilder 1`] = `
       class="form"
       name="applicantForm"
     >
-      <div>
+      <div
+        class="field"
+      >
         <label
           for="firstName"
         >
@@ -20,7 +22,9 @@ exports[`FormBuilder renders the FormBuilder 1`] = `
           />
         </label>
       </div>
-      <div>
+      <div
+        class="field"
+      >
         <label
           for="lastName"
         >
@@ -32,6 +36,39 @@ exports[`FormBuilder renders the FormBuilder 1`] = `
             type="text"
           />
         </label>
+      </div>
+      <div
+        class="field"
+      >
+        <div>
+          Are you a Software Engineer?
+        </div>
+        <span>
+          <label
+            for="yes"
+          >
+            yes
+          </label>
+          <input
+            id="isSoftwareEngineer-yes"
+            name="isSoftwareEngineer-yes"
+            type="checkbox"
+          />
+           
+        </span>
+        <span>
+          <label
+            for="no"
+          >
+            no
+          </label>
+          <input
+            id="isSoftwareEngineer-no"
+            name="isSoftwareEngineer-no"
+            type="checkbox"
+          />
+           
+        </span>
       </div>
       <button
         type="submit"
