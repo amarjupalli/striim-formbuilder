@@ -60,10 +60,10 @@ const fields = [
   },
 ] as const satisfies FormField<string>[];
 
-export interface FormData<T extends string> {
+export interface FormBuilderData<T extends string> {
   fields: FormField<T>[];
 }
 
-const formData = { fields } as const satisfies FormData<string>;
+const formData = { fields } as const satisfies FormBuilderData<string>;
 
 export default formData;

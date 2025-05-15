@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import handleSubmit from "./handleSubmit";
-import { type FormField, type FormData, FORM_INPUTS } from "./formData";
+import { type FormField, type FormBuilderData, FORM_INPUTS } from "./formData";
 
 interface FormBuilderProps {
-  formData: FormData<string>;
+  formData: FormBuilderData<string>;
 }
 
 function renderFromField(field: FormField<string>) {
