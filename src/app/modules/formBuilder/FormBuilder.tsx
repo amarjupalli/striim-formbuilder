@@ -45,6 +45,28 @@ function renderFromField(field: FormField<string>) {
     );
   }
 
+  if (field.type === FORM_INPUTS.RADIO_BUTTON) {
+    return (
+      <div className="field" key={`$form-field-${field.name}`}>
+        <label>{field.label}</label>
+        <div style={{ display: "inline-flex", gap: "16px" }}>
+          {field.options.map((option) => (
+            <div key={`input-radio-${option}`}>
+              <label htmlFor={option}>{option}</label>
+              <input
+                type="radio"
+                name={field.name}
+                value={option}
+                id={`${field.name}-${option}`}
+                required={!!field.required}
+              />{" "}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   if (
     field.type === FORM_INPUTS.MULTI_SELECT ||
     field.type === FORM_INPUTS.SELECT

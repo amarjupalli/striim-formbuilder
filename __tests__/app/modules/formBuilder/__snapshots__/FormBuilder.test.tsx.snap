@@ -56,7 +56,7 @@ exports[`FormBuilder renders the FormBuilder 1`] = `
           <input
             id="isSoftwareEngineer-yes"
             name="isSoftwareEngineer"
-            type="checkbox"
+            type="radio"
             value="yes"
           />
            
@@ -70,8 +70,75 @@ exports[`FormBuilder renders the FormBuilder 1`] = `
           <input
             id="isSoftwareEngineer-no"
             name="isSoftwareEngineer"
-            type="checkbox"
+            type="radio"
             value="no"
+          />
+           
+        </div>
+      </div>
+    </div>
+    <div
+      class="field"
+    >
+      <label>
+        Select your area of interests
+      </label>
+      <div
+        style="display: inline-flex; gap: 16px;"
+      >
+        <div>
+          <label
+            for="Backend"
+          >
+            Backend
+          </label>
+          <input
+            id="interestedIn-Backend"
+            name="interestedIn"
+            type="checkbox"
+            value="Backend"
+          />
+           
+        </div>
+        <div>
+          <label
+            for="Frontend"
+          >
+            Frontend
+          </label>
+          <input
+            id="interestedIn-Frontend"
+            name="interestedIn"
+            type="checkbox"
+            value="Frontend"
+          />
+           
+        </div>
+        <div>
+          <label
+            for="Full stack"
+          >
+            Full stack
+          </label>
+          <input
+            id="interestedIn-Full stack"
+            name="interestedIn"
+            type="checkbox"
+            value="Full stack"
+          />
+           
+        </div>
+        <div>
+          <label
+            for="DevOps/Infra"
+          >
+            DevOps/Infra
+          </label>
+          <input
+            id="interestedIn-DevOps/Infra"
+            name="interestedIn"
+            type="checkbox"
+            value="DevOps/Infra"
           />
            
         </div>

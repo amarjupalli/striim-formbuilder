@@ -41,21 +41,40 @@ describe("FormBuilder", () => {
     expect(handleSubmit).toHaveBeenCalledTimes(1);
   });
 
-  it("should render checkbox and labels", () => {
-    const { container } = render(<FormBuilder formData={formData} />);
-    expect(
-      screen.getByText("Are you a Software Engineer?"),
-    ).toBeInTheDocument();
+  describe("radio buttons and checkboxes", () => {
+    it("should render radio buttons and labels", () => {
+      const { container } = render(<FormBuilder formData={formData} />);
+      expect(
+        screen.getByText("Are you a Software Engineer?"),
+      ).toBeInTheDocument();
 
-    expect(screen.getByText("yes")).toBeInTheDocument();
-    expect(
-      container.querySelector("#isSoftwareEngineer-yes"),
-    ).toBeInTheDocument();
+      expect(screen.getByText("yes")).toBeInTheDocument();
+      expect(
+        container.querySelector("#isSoftwareEngineer-yes"),
+      ).toBeInTheDocument();
 
-    expect(screen.getByText("no")).toBeInTheDocument();
-    expect(
-      container.querySelector("#isSoftwareEngineer-no"),
-    ).toBeInTheDocument();
+      expect(screen.getByText("no")).toBeInTheDocument();
+      expect(
+        container.querySelector("#isSoftwareEngineer-no"),
+      ).toBeInTheDocument();
+    });
+
+    it("should render check boxes and labels", () => {
+      const { container } = render(<FormBuilder formData={formData} />);
+      expect(
+        screen.getByText(/select your area of interests/i),
+      ).toBeInTheDocument();
+
+      expect(screen.getByText("Backend")).toBeInTheDocument();
+      expect(
+        container.querySelector("#interestedIn-Backend"),
+      ).toBeInTheDocument();
+
+      expect(screen.getByText("Frontend")).toBeInTheDocument();
+      expect(
+        container.querySelector("#interestedIn-Frontend"),
+      ).toBeInTheDocument();
+    });
   });
 
   it("should render select boxes, listboxes and their title", () => {

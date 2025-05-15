@@ -1,6 +1,7 @@
 export const FORM_INPUTS = {
   TEXT: "text",
   CHECKBOX: "checkbox",
+  RADIO_BUTTON: "radioButton",
   SELECT: "select",
   MULTI_SELECT: "multiSelect",
 } as const;
@@ -17,6 +18,7 @@ interface TextFormField extends BaseFormField {
 interface OptionsFormField<T extends string> extends BaseFormField {
   type:
     | typeof FORM_INPUTS.CHECKBOX
+    | typeof FORM_INPUTS.RADIO_BUTTON
     | typeof FORM_INPUTS.MULTI_SELECT
     | typeof FORM_INPUTS.SELECT;
   options: T[];
@@ -38,10 +40,16 @@ const fields = [
     required: true,
   },
   {
-    type: FORM_INPUTS.CHECKBOX,
+    type: FORM_INPUTS.RADIO_BUTTON,
     name: "isSoftwareEngineer",
     label: "Are you a Software Engineer?",
     options: ["yes", "no"],
+  },
+  {
+    type: FORM_INPUTS.CHECKBOX,
+    name: "interestedIn",
+    label: "Select your area of interests",
+    options: ["Backend", "Frontend", "Full stack", "DevOps/Infra"],
   },
   {
     type: FORM_INPUTS.MULTI_SELECT,
