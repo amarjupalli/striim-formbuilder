@@ -45,7 +45,7 @@ exports[`FormBuilder renders the FormBuilder 1`] = `
         Are you a Software Engineer?
       </label>
       <div
-        style="display: inline-flex; gap: 16px;"
+        style="display: inline-flex; gap: 16px; flex-wrap: wrap;"
       >
         <div>
           <label
@@ -84,7 +84,7 @@ exports[`FormBuilder renders the FormBuilder 1`] = `
         Select your area of interests
       </label>
       <div
-        style="display: inline-flex; gap: 16px;"
+        style="display: inline-flex; gap: 16px; flex-wrap: wrap;"
       >
         <div>
           <label

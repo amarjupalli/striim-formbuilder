@@ -27,7 +27,7 @@ function renderFromField(field: FormField<string>) {
     return (
       <div className="field" key={`$form-field-${field.name}`}>
         <label>{field.label}</label>
-        <div style={{ display: "inline-flex", gap: "16px" }}>
+        <div style={{ display: "inline-flex", gap: "16px", flexWrap: "wrap" }}>
           {field.options.map((option) => (
             <div key={`input-checkbox-${option}`}>
               <label htmlFor={option}>{option}</label>
@@ -49,7 +49,7 @@ function renderFromField(field: FormField<string>) {
     return (
       <div className="field" key={`$form-field-${field.name}`}>
         <label>{field.label}</label>
-        <div style={{ display: "inline-flex", gap: "16px" }}>
+        <div style={{ display: "inline-flex", gap: "16px", flexWrap: "wrap" }}>
           {field.options.map((option) => (
             <div key={`input-radio-${option}`}>
               <label htmlFor={option}>{option}</label>
