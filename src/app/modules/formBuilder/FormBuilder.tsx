@@ -1,10 +1,19 @@
 "use client";
-import React from "react";
-import handleSubmit from "./handleSubmit";
 import { type FormField, type FormBuilderData, FORM_INPUTS } from "./formData";
+import handleSubmit from "./actions";
+import { useFormStatus } from "react-dom";
 
 interface FormBuilderProps {
   formData: FormBuilderData<string>;
+}
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return (
+    <button type="submit" disabled={pending}>
+      {pending ? "Submitting..." : "Submit"}
+    </button>
+  );
 }
 
 function renderFromField(field: FormField<string>) {
@@ -94,11 +103,12 @@ function renderFromField(field: FormField<string>) {
 
 export default function FormBuilder({ formData }: FormBuilderProps) {
   const { fields } = formData;
+
   return (
-    <form className="form" name="applicantForm" onSubmit={handleSubmit}>
+    <form className="form" name="applicantForm" action={handleSubmit}>
       {fields.map(renderFromField)}
       <div className="buttonContainer">
-        <button type="submit">Submit</button>
+        <SubmitButton />
         <button type="reset">Reset</button>
       </div>
     </form>
