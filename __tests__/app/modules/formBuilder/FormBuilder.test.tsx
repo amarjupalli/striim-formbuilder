@@ -25,14 +25,20 @@ describe("FormBuilder", () => {
   });
 
   it("should render a submit and reset button", () => {
-    render(<FormBuilder formData={formData} />);
+    render(
+      <FormBuilder
+        formData={{
+          fields: [{ type: "text", name: "testInput", label: "Test input" }],
+        }}
+      />,
+    );
     const submitButton = screen.getByRole("button", { name: /submit/i });
     const resetButton = screen.getByRole("button", { name: /reset/i });
     expect(submitButton).toBeInTheDocument();
     expect(resetButton).toBeInTheDocument();
 
     fireEvent.click(submitButton);
-    expect(handleSubmit).toHaveBeenCalled();
+    expect(handleSubmit).toHaveBeenCalledTimes(1);
   });
 
   it("should render checkbox and labels", () => {

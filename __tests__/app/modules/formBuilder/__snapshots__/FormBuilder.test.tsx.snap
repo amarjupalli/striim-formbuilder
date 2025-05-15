@@ -18,6 +18,7 @@ exports[`FormBuilder renders the FormBuilder 1`] = `
         id="firstName"
         name="firstName"
         placeholder="First Name"
+        required=""
         type="text"
       />
     </div>
@@ -33,6 +34,7 @@ exports[`FormBuilder renders the FormBuilder 1`] = `
         id="lastName"
         name="lastName"
         placeholder="Last Name"
+        required=""
         type="text"
       />
     </div>
@@ -130,6 +132,7 @@ exports[`FormBuilder renders the FormBuilder 1`] = `
         id="officeDays"
         multiple=""
         name="officeDays"
+        required=""
       >
         <option
           value="Monday"

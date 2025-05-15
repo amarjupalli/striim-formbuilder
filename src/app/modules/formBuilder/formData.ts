@@ -7,6 +7,7 @@ export const FORM_INPUTS = {
 interface BaseFormField {
   name: string;
   label: string;
+  required?: boolean;
 }
 
 interface TextFormField extends BaseFormField {
@@ -28,11 +29,13 @@ const fields = [
     type: FORM_INPUTS.TEXT,
     name: "firstName",
     label: "First Name",
+    required: true,
   },
   {
     type: FORM_INPUTS.TEXT,
     name: "lastName",
     label: "Last Name",
+    required: true,
   },
   {
     type: FORM_INPUTS.CHECKBOX,
@@ -51,6 +54,7 @@ const fields = [
     name: "officeDays",
     label: "When can you come to our office in Palo Alto?",
     options: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Never"],
+    required: true,
   },
   {
     type: FORM_INPUTS.SELECT,

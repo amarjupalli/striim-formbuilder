@@ -17,6 +17,7 @@ function renderFromField(field: FormField<string>) {
           name={field.name}
           id={field.name}
           placeholder={field.label}
+          required={!!field.required}
         />
       </div>
     );
@@ -34,6 +35,7 @@ function renderFromField(field: FormField<string>) {
                 type="checkbox"
                 name={field.name}
                 id={`${field.name}-${option}`}
+                required={!!field.required}
               />{" "}
             </div>
           ))}
@@ -50,7 +52,12 @@ function renderFromField(field: FormField<string>) {
     return (
       <div className="field" key={`$form-field-${name}`}>
         <label htmlFor={name}>{label}</label>
-        <select name={name} id={name} multiple={type === "multiSelect"}>
+        <select
+          name={name}
+          id={name}
+          multiple={type === "multiSelect"}
+          required={!!field.required}
+        >
           {options.map((option) => (
             <option key={`${name}-option-${option}`} value={option}>
               {option}
