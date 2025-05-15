@@ -1,7 +1,8 @@
-function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault();
-  const rawFormData = new FormData(e.target as HTMLFormElement);
-  const entries = rawFormData.entries();
+"use server";
+
+async function handleSubmit(formData: FormData) {
+  console.log("calling api...");
+  const entries = formData.entries();
 
   // To account for multiple selection fields, we need to need the value as FormDataEntryValue[] also
   const formValues: Record<string, FormDataEntryValue | FormDataEntryValue[]> =
@@ -21,8 +22,12 @@ function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       }
     }
   }
-  console.log("onSave", { formValues });
-  return formValues;
+
+  await new Promise((resolve) => {
+    setTimeout(resolve, 1000);
+  });
+
+  console.log("onSave", formValues);
 }
 
 export default handleSubmit;

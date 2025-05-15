@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 import FormBuilder from "@/app/modules/formBuilder/FormBuilder";
 import formData from "@/app/modules/formBuilder/formData";
-import handleSubmit from "@/app/modules/formBuilder/handleSubmit";
+import handleSubmit from "@/app/modules/formBuilder/actions";
 
 jest.mock("../../../../src/app/modules/formBuilder/handleSubmit");
 
