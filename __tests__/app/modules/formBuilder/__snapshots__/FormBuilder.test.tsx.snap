@@ -57,6 +57,7 @@ exports[`FormBuilder renders the FormBuilder 1`] = `
             id="isSoftwareEngineer-yes"
             name="isSoftwareEngineer"
             type="checkbox"
+            value="yes"
           />
            
         </div>
@@ -70,6 +71,7 @@ exports[`FormBuilder renders the FormBuilder 1`] = `
             id="isSoftwareEngineer-no"
             name="isSoftwareEngineer"
             type="checkbox"
+            value="no"
           />
            
         </div>

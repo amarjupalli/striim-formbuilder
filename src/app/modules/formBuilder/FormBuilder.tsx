@@ -34,6 +34,7 @@ function renderFromField(field: FormField<string>) {
               <input
                 type="checkbox"
                 name={field.name}
+                value={option}
                 id={`${field.name}-${option}`}
                 required={!!field.required}
               />{" "}
